@@ -390,10 +390,10 @@ class Fcviewer(Qw.QMainWindow):
         font_sizes = np.ones(4)
         font_list = []
         for i, label in enumerate(self.choicelist):
-            label.setWordWrap(True)
+            label.setWordWrap(False)
             font = label.font()
             font_metrics = Qg.QFontMetrics(font)
-            while font_metrics.horizontalAdvance(label.text()) < label.width() and font_sizes[i] < 300:
+            while font_metrics.horizontalAdvance(label.text()) < label.width()/1.5 and font_sizes[i] < 30:
                 font_sizes[i] =  font_sizes[i] + 5        
                 font.setPointSize(int(font_sizes[i]))
                 font_metrics = Qg.QFontMetrics(font)
